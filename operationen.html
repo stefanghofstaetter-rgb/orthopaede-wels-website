@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operationen | Priv. Doz. Dr. Stefan Hofstätter</title>
+<meta name="description" content="Ambulante und stationäre Operationen: Fußchirurgie, Sportchirurgie, Handchirurgie, Knie- und Hüftgelenkoperationen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo-link" href="index.html"><img src="img/logo.png" alt="Priv. Doz. Dr. Stefan Hofstätter – Facharzt für Orthopädie, Sport, Therapie"></a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#005670" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="ueber-mich.html">Über mich</a></li>
+        <li><a href="ordination.html">Ordination</a></li>
+        <li><a href="operationen.html" aria-current="page">Operationen</a></li>
+        <li><a href="therapiezentrum.html">Therapiezentrum</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Operationen</h1>
+      <p>Ambulante und stationäre Eingriffe in bewährter Zusammenarbeit mit erfahrenen Partnern und Kliniken.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        <div class="card">
+          <h3>Ambulante Operationen</h3>
+          <p>In der Tagesklinik St. Stephan in Wels, für Selbstzahler und Zusatzversicherte, persönlich durchgeführt von mir und dem Team von Dr. Bostl (Anästhesist).</p>
+          <ul style="color:var(--color-text-muted);padding-left:1.1rem;margin-top:1rem;">
+            <li>Fußchirurgie: Hallux valgus, Morton Neurinom, Metatarsalgie</li>
+            <li>Sportchirurgie: Arthroskopie Knie und Fuß</li>
+            <li>Handchirurgie: z.&nbsp;B. Karpaltunneloperation</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Stationäre Operationen</h3>
+          <p>Kniegelenk- und Hüftgelenkoperationen sowie Revisionsoperationen werden in Zusammenarbeit mit renommierten Experten, Partnern und Kliniken durchgeführt.</p>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top:2.5rem;">
+        <a class="btn btn-primary" style="background:var(--color-primary);color:#fff;" href="tel:+43724251960">Termin unter 07242 51960</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Ordination</h4>
+        <ul>
+          <li>Wallererstraße 12, 4600 Wels</li>
+          <li><a href="tel:+43724251960">07242 51960</a></li>
+          <li>Alle Kassen und privat</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Öffnungszeiten</h4>
+        <ul>
+          <li>Mo 08:00–12:00</li>
+          <li>Di 08:00–12:00, 13:00–15:00</li>
+          <li>Mi 08:00–12:00 (Operationen)</li>
+          <li>Do 13:00–16:00</li>
+          <li>Fr 08:00–11:00</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="ueber-mich.html">Über mich</a></li>
+          <li><a href="ordination.html">Ordination</a></li>
+          <li><a href="operationen.html">Operationen</a></li>
+          <li><a href="therapiezentrum.html">Therapiezentrum</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Priv. Doz. Dr. Stefan Hofstätter</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="js/main.js"></script>
+</body>
+</html>
