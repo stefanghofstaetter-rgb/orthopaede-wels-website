@@ -9,7 +9,6 @@ Reines HTML/CSS/JS ohne Build-Schritt – einfach `index.html` im Browser öffne
 - `index.html` – Start
 - `ueber-mich.html` – Über mich (Werdegang, Schwerpunkte) – **neu**, gab es auf der alten Seite nicht
 - `ordination.html` – Ordination
-- `operationen.html` – Operationen
 - `therapiezentrum.html` – Therapiezentrum (Leistungen als aufklappbare Liste)
 - `kontakt.html` – Kontakt, Öffnungszeiten, Anfahrt, Karte
 - `impressum.html`, `datenschutz.html` – Rechtstexte (aus der bestehenden Seite übernommen)
