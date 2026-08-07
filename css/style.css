@@ -41,6 +41,7 @@ h2 { font-size: clamp(1.5rem, 3vw, 2rem); text-transform: uppercase; }
 h3 { font-size: 1.2rem; color: var(--color-primary); text-transform: uppercase; }
 
 p { margin: 0 0 1em; color: var(--color-text-muted); }
+p strong { color: var(--color-primary-dark); }
 
 a { color: var(--color-primary); text-decoration: none; }
 a:hover { color: var(--color-primary-dark); }
