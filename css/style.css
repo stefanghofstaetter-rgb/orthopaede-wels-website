@@ -436,6 +436,41 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   font-size: 0.85rem;
 }
 
+/* ===== Schließzeiten-Popup ===== */
+.closure-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 30, 40, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 500;
+}
+body.closure-open { overflow: hidden; }
+.closure-box {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 440px;
+  width: 100%;
+  padding: 2rem;
+  text-align: left;
+  border-top: 6px solid var(--color-accent);
+}
+.closure-box h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.closure-box ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  color: var(--color-text);
+}
+.closure-box li { margin-bottom: 0.4rem; }
+.closure-box p { font-size: 0.95rem; margin-bottom: 1.5rem; }
+.closure-box .btn { width: 100%; text-align: center; color: #fff; }
+
 /* ===== Utility ===== */
 .text-center { text-align: center; }
 .mt-0 { margin-top: 0; }
