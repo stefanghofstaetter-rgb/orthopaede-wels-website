@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="closure-box">
       <h2 id="closure-title">Ordination vorübergehend geschlossen</h2>
       <ul>${items}</ul>
-      <p>Bei dringenden Anliegen erreichen Sie uns telefonisch unter <a href="tel:+43724251960">07242 51960</a>.</p>
+      <p>Bei dringenden Anliegen wenden Sie sich bitte an den auf unserem Anrufbeantworter genannten Vertretungsarzt, an die Gesundheitsberatung unter <a href="tel:1450">1450</a> oder an Ihren Hausarzt.</p>
       <button type="button" class="btn btn-primary closure-close">Verstanden</button>
     </div>
   `;
