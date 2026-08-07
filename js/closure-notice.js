@@ -1,43 +1,71 @@
 // ============================================================
 // SCHLIESSZEITEN DER ORDINATION (Urlaub, Fortbildung, etc.)
 // ------------------------------------------------------------
-// Hier einfach neue Zeilen hinzufügen oder bestehende ändern.
-// Format:  { reason: "Urlaub", start: "YYYY-MM-DD", end: "YYYY-MM-DD" }
-// Bei nur einem Tag: start und end gleich setzen.
-// Vergangene Einträge müssen NICHT gelöscht werden – sie werden
-// automatisch ausgeblendet, sobald das Enddatum vorbei ist.
+// Die Termine werden aus dieser Google-Tabelle geladen:
+// https://docs.google.com/spreadsheets/d/1hP-BPFKpS2olLab7Ox7-lDCOGvEYPbZx5VZTzyG1Jvs/edit
+//
+// Einfach dort eine neue Zeile eintragen: Grund | Von | Bis
+// (Datumsformat TT.MM.JJJJ, bei nur einem Tag Von = Bis).
+// Vergangene Zeilen können stehen bleiben – sie werden auf der
+// Website automatisch ausgeblendet, sobald das Enddatum vorbei ist.
+//
+// FALLBACK_CLOSURES unten wird nur verwendet, falls die Tabelle
+// gerade nicht erreichbar ist (z. B. keine Internetverbindung).
 // ============================================================
-const CLOSURES = [
-  { reason: "Urlaub", start: "2026-08-03", end: "2026-08-17" },
-  { reason: "Urlaub", start: "2026-08-22", end: "2026-08-22" },
-  { reason: "Urlaub", start: "2026-08-23", end: "2026-08-23" },
+const SHEET_CSV_URL =
+  "https://docs.google.com/spreadsheets/d/1hP-BPFKpS2olLab7Ox7-lDCOGvEYPbZx5VZTzyG1Jvs/export?format=csv&gid=0";
+
+const FALLBACK_CLOSURES = [
+  { reason: "Urlaub", startDE: "03.08.2026", endDE: "17.08.2026" },
+  { reason: "Urlaub", startDE: "22.08.2026", endDE: "22.08.2026" },
+  { reason: "Urlaub", startDE: "23.08.2026", endDE: "23.08.2026" },
 ];
 // ============================================================
 
-function formatDateDE(iso) {
-  const [y, m, d] = iso.split("-");
-  return `${d}.${m}.${y}`;
+function parseDateDE(str) {
+  const [d, m, y] = str.trim().split(".");
+  return new Date(`${y}-${m}-${d}T00:00:00`);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  return lines
+    .slice(1) // Kopfzeile überspringen
+    .map((line) => line.split(","))
+    .filter((cols) => cols.length >= 3 && cols[0].trim())
+    .map(([reason, startDE, endDE]) => ({
+      reason: reason.trim(),
+      startDE: startDE.trim(),
+      endDE: endDE.trim(),
+    }));
+}
+
+async function loadClosures() {
+  try {
+    const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("Tabelle nicht erreichbar");
+    const parsed = parseCSV(await res.text());
+    return parsed.length ? parsed : FALLBACK_CLOSURES;
+  } catch (err) {
+    return FALLBACK_CLOSURES;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const closures = await loadClosures();
+
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const active = CLOSURES.filter((c) => {
-    const end = new Date(c.end + "T23:59:59");
-    return end >= today;
-  });
-
+  const active = closures.filter((c) => parseDateDE(c.endDE) >= today);
   if (active.length === 0) return;
 
-  const sessionKey = "closureNoticeSeen:" + active.map((c) => `${c.reason}|${c.start}|${c.end}`).join(";");
+  const sessionKey = "closureNoticeSeen:" + active.map((c) => `${c.reason}|${c.startDE}|${c.endDE}`).join(";");
   if (sessionStorage.getItem(sessionKey)) return;
 
   const items = active
     .map((c) => {
-      const when = c.start === c.end
-        ? `am ${formatDateDE(c.start)}`
-        : `von ${formatDateDE(c.start)} bis ${formatDateDE(c.end)}`;
+      const when = c.startDE === c.endDE ? `am ${c.startDE}` : `von ${c.startDE} bis ${c.endDE}`;
       return `<li>${c.reason} ${when}</li>`;
     })
     .join("");
