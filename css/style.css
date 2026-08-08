@@ -437,6 +437,59 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   font-size: 0.85rem;
 }
 
+/* ===== Logo-/Slogan-Wischkacheln (Startseite Hero) ===== */
+.logo-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  scrollbar-width: none;
+}
+.logo-scroll::-webkit-scrollbar { display: none; }
+.logo-panel {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  aspect-ratio: 4 / 5;
+  background: var(--color-primary-dark);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.logo-panel-line {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin: 0;
+}
+.logo-panel-bold {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 0.35rem;
+}
+.logo-panel-icon {
+  width: 42%;
+  height: auto;
+  margin-bottom: 1.75rem;
+  border-radius: 0;
+  filter: brightness(0) invert(1);
+}
+.logo-panel-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
 /* ===== Wisch-Galerie ===== */
 .gallery-scroll {
   display: flex;
