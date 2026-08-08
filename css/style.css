@@ -175,6 +175,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   gap: 2.5rem;
   align-items: center;
 }
+.hero-grid > div { min-width: 0; }
 @media (max-width: 780px) {
   .hero-grid { grid-template-columns: 1fr; }
 }
