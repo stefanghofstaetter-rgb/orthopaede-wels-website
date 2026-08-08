@@ -470,24 +470,36 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   font-size: 1.6rem;
   line-height: 1.2;
   margin: 0;
+  color: #fff;
 }
 .logo-panel-bold {
   font-weight: 700;
   font-size: 2rem;
   margin-top: 0.35rem;
+  color: #fff;
+}
+.logo-panel-icon-badge {
+  width: 46%;
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .logo-panel-icon {
-  width: 42%;
+  width: 62%;
   height: auto;
-  margin-bottom: 1.75rem;
-  border-radius: 0;
-  filter: brightness(0) invert(1);
+  display: block;
 }
 .logo-panel-name {
   font-family: Georgia, 'Times New Roman', serif;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 1.3rem;
+  color: #fff;
   line-height: 1.4;
   margin: 0;
 }
