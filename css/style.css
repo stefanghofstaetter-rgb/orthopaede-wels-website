@@ -468,17 +468,18 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   padding: 2rem;
 }
 .logo-panel-photo {
-  padding: 1.5rem;
+  padding: 2.5rem;
   background: var(--color-bg-alt);
 }
 .logo-panel-photo img {
-  width: 100%;
-  height: 100%;
+  width: 68%;
+  height: 82%;
   object-fit: cover;
   object-position: top center;
   border-radius: calc(var(--radius) - 6px);
   box-shadow: var(--shadow);
   display: block;
+  margin: 0 auto;
 }
 .logo-nav-btn {
   position: absolute;
