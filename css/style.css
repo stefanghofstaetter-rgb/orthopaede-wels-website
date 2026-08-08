@@ -469,7 +469,7 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
 }
 .logo-panel-photo {
   padding: 2.5rem;
-  background: var(--color-bg-alt);
+  background: var(--color-primary-dark);
 }
 .logo-panel-photo img {
   width: 68%;
