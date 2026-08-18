@@ -132,6 +132,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   font-size: 0.95rem;
   padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 
 .main-nav a:hover,
