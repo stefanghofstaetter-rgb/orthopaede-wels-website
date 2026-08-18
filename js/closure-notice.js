@@ -1,24 +1,16 @@
 // ============================================================
 // SCHLIESSZEITEN DER ORDINATION (Urlaub, Fortbildung, etc.)
 // ------------------------------------------------------------
-// Die Termine werden aus dieser Google-Tabelle geladen:
-// https://docs.google.com/spreadsheets/d/1hP-BPFKpS2olLab7Ox7-lDCOGvEYPbZx5VZTzyG1Jvs/edit
-//
-// Einfach dort eine neue Zeile eintragen: Grund | Von | Bis
+// Einfach hier eine neue Zeile eintragen: Grund | Von | Bis
 // (Datumsformat TT.MM.JJJJ, bei nur einem Tag Von = Bis).
 // Vergangene Zeilen können stehen bleiben – sie werden auf der
 // Website automatisch ausgeblendet, sobald das Enddatum vorbei ist.
-//
-// FALLBACK_CLOSURES unten wird nur verwendet, falls die Tabelle
-// gerade nicht erreichbar ist (z. B. keine Internetverbindung).
+// Das Pop-up erscheint nur während des jeweiligen Zeitraums.
 // ============================================================
-const SHEET_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/1hP-BPFKpS2olLab7Ox7-lDCOGvEYPbZx5VZTzyG1Jvs/export?format=csv&gid=0";
-
-const FALLBACK_CLOSURES = [
-  { reason: "Urlaub", startDE: "03.08.2026", endDE: "17.08.2026" },
-  { reason: "Urlaub", startDE: "22.08.2026", endDE: "22.08.2026" },
-  { reason: "Urlaub", startDE: "23.08.2026", endDE: "23.08.2026" },
+const CLOSURES = [
+  { reason: "Geschlossen", startDE: "04.09.2026", endDE: "04.09.2026" },
+  { reason: "Geschlossen", startDE: "26.10.2026", endDE: "30.10.2026" },
+  { reason: "Geschlossen", startDE: "24.12.2026", endDE: "31.12.2026" },
 ];
 // ============================================================
 
@@ -27,37 +19,11 @@ function parseDateDE(str) {
   return new Date(`${y}-${m}-${d}T00:00:00`);
 }
 
-function parseCSV(text) {
-  const lines = text.trim().split(/\r?\n/);
-  return lines
-    .slice(1) // Kopfzeile überspringen
-    .map((line) => line.split(","))
-    .filter((cols) => cols.length >= 3 && cols[0].trim())
-    .map(([reason, startDE, endDE]) => ({
-      reason: reason.trim(),
-      startDE: startDE.trim(),
-      endDE: endDE.trim(),
-    }));
-}
-
-async function loadClosures() {
-  try {
-    const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error("Tabelle nicht erreichbar");
-    const parsed = parseCSV(await res.text());
-    return parsed.length ? parsed : FALLBACK_CLOSURES;
-  } catch (err) {
-    return FALLBACK_CLOSURES;
-  }
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const closures = await loadClosures();
-
+document.addEventListener("DOMContentLoaded", () => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const active = closures.filter((c) => parseDateDE(c.startDE) <= today && parseDateDE(c.endDE) >= today);
+  const active = CLOSURES.filter((c) => parseDateDE(c.startDE) <= today && parseDateDE(c.endDE) >= today);
   if (active.length === 0) return;
 
   const sessionKey = "closureNoticeSeen:" + active.map((c) => `${c.reason}|${c.startDE}|${c.endDE}`).join(";");
