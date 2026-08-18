@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const active = closures.filter((c) => parseDateDE(c.endDE) >= today);
+  const active = closures.filter((c) => parseDateDE(c.startDE) <= today && parseDateDE(c.endDE) >= today);
   if (active.length === 0) return;
 
   const sessionKey = "closureNoticeSeen:" + active.map((c) => `${c.reason}|${c.startDE}|${c.endDE}`).join(";");
