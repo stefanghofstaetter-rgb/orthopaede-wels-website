@@ -93,14 +93,18 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   padding-bottom: 0.75rem;
 }
 
-.logo-link img { height: 60px; width: auto; border-radius: 0; }
+.logo-link img { height: 74px; width: auto; border-radius: 0; }
 
-@media (max-width: 380px) {
-  .logo-link img { height: 52px; }
+@media (max-width: 340px) {
+  .logo-link img { height: 56px; }
+}
+
+@media (min-width: 421px) and (max-width: 860px) {
+  .logo-link img { height: 88px; }
 }
 
 @media (min-width: 861px) {
-  .logo-link img { height: 78px; }
+  .logo-link img { height: 132px; }
 }
 
 .nav-toggle {
