@@ -473,14 +473,15 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
 }
 .logo-panel-photo img {
   width: 68%;
-  height: 82%;
+  height: 68%;
   object-fit: cover;
   object-position: top center;
   border-radius: calc(var(--radius) - 6px);
   box-shadow: var(--shadow);
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 1.25rem;
 }
+.logo-panel-photo .logo-panel-name { margin: 0; }
 .logo-nav-btn {
   position: absolute;
   top: 50%;
