@@ -93,7 +93,15 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   padding-bottom: 0.75rem;
 }
 
-.logo-link img { height: 56px; width: auto; border-radius: 0; }
+.logo-link img { height: 60px; width: auto; border-radius: 0; }
+
+@media (max-width: 380px) {
+  .logo-link img { height: 52px; }
+}
+
+@media (min-width: 861px) {
+  .logo-link img { height: 78px; }
+}
 
 .nav-toggle {
   display: none;
