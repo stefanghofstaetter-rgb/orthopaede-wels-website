@@ -337,6 +337,21 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
 }
 .service-item ul { margin: 0 0 1.25rem; padding-left: 1.25rem; color: var(--color-text-muted); }
 
+/* FAQ: Fragen sind ganze Sätze statt kurzer Begriffe -> Icon oben ausrichten, wenn der Text mehrzeilig umbricht */
+.faq-list .service-item summary {
+  align-items: flex-start;
+  line-height: 1.35;
+}
+.faq-list .service-item summary::after {
+  margin-top: 0.1em;
+}
+@media (max-width: 600px) {
+  .faq-list .service-item summary {
+    font-size: 0.92rem;
+    padding: 1rem 0.15rem;
+  }
+}
+
 .service-group-title {
   margin-top: 3rem;
   padding-bottom: 0.5rem;
