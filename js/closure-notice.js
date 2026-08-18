@@ -18,7 +18,7 @@
 // und das Pop-up erscheint jeweils nur während des Zeitraums selbst.
 // ============================================================
 const SHEET_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/1hP-BPFKpS2olLab7Ox7-lDCOGvEYPbZx5VZTzyG1Jvs/export?format=csv&gid=0";
+  "https://docs.google.com/spreadsheets/d/1hP-BPFKpS2olLab7Ox7-lDCOGvEYPbZx5VZTzyG1Jvs/export?format=csv";
 
 const CLOSURES = [
   { reason: "Geschlossen", startDE: "04.09.2026", endDE: "04.09.2026" },
