@@ -262,6 +262,15 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   gap: 2rem;
   margin-bottom: 2.5rem;
 }
+.section-label {
+  display: block;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
 .focus-item h3 {
   color: var(--color-primary-dark);
   text-transform: none;
