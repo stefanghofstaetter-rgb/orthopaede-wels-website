@@ -156,6 +156,12 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   .main-nav ul { gap: 4.5rem; }
   .main-nav a { font-size: 1.15rem; }
   .page-hero .subtitle-oneline { max-width: none; white-space: nowrap; font-size: 0.9rem; }
+
+  /* Größere Bilder für Ordinations-Galerie & Therapiezentrum-Karussell nur auf echtem Desktop */
+  .gallery-item { flex: 0 0 31%; max-width: 620px; }
+  .gallery-item img { height: 340px; }
+  .therapy-carousel-wrap { max-width: 640px; }
+  .therapy-slide img { height: 380px; }
 }
 
 @media (max-width: 860px) {
