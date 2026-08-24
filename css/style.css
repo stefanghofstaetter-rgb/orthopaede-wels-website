@@ -155,7 +155,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   }
   .main-nav ul { gap: 4.5rem; }
   .main-nav a { font-size: 1.15rem; }
-  .page-hero .subtitle-oneline { max-width: none; white-space: nowrap; }
+  .page-hero .subtitle-oneline { max-width: none; white-space: nowrap; font-size: 0.9rem; }
 }
 
 @media (max-width: 860px) {
