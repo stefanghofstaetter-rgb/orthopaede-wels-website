@@ -353,6 +353,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   margin: 0;
 }
 .service-item ul { margin: 0 0 1.25rem; padding-left: 1.25rem; color: var(--color-text-muted); }
+.service-item .focus-sublist { margin: 1rem 0 1.25rem; padding: 0; }
 
 /* FAQ: Fragen sind ganze Sätze statt kurzer Begriffe -> Icon oben ausrichten, wenn der Text mehrzeilig umbricht */
 .faq-list .service-item summary {
