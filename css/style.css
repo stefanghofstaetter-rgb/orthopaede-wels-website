@@ -415,10 +415,12 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
 .team-group { padding-top: 1.85rem; border-top: 1px solid var(--color-border); }
 .team-group:first-of-type { padding-top: 0; border-top: none; }
 .team-group + .team-group { margin-top: 0; }
-.team-group-heading { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.1rem; }
-.team-group-heading .icon-badge { width: 38px; height: 38px; margin: 0; flex-shrink: 0; }
-.team-group-heading .icon-badge svg { width: 18px; height: 18px; }
-.team-group h3 { margin: 0; }
+.team-group h3 {
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--color-accent);
+  display: inline-block;
+}
 
 /* ===== Two column layout ===== */
 .two-col {
