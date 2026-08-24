@@ -152,7 +152,7 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
     padding-top: 1.15rem;
     padding-bottom: 1.15rem;
   }
-  .main-nav ul { gap: 2.25rem; }
+  .main-nav ul { gap: 3rem; }
   .main-nav a { font-size: 1.15rem; }
 }
 
