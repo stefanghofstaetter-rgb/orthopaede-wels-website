@@ -141,6 +141,13 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
   color: var(--color-primary-dark);
 }
 
+/* Größere Navigationsleiste & Schrift nur auf echten Desktop-/PC-Geräten (Maus statt Touch), nicht auf Handy/iPad */
+@media (min-width: 1100px) and (hover: hover) and (pointer: fine) {
+  .site-header .container { padding-top: 1.15rem; padding-bottom: 1.15rem; }
+  .main-nav ul { gap: 2.25rem; }
+  .main-nav a { font-size: 1.15rem; }
+}
+
 @media (max-width: 860px) {
   .nav-toggle { display: inline-flex; }
   .main-nav {
@@ -467,49 +474,25 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   font-size: 0.85rem;
 }
 
-/* ===== Logo-/Slogan-Wischkacheln (Startseite Hero) ===== */
-.logo-scroll-wrap {
-  position: relative;
+/* ===== Startseite Hero: Porträtfoto ===== */
+.hero-photo {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
 }
-.logo-scroll {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.logo-scroll::-webkit-scrollbar { display: none; }
-.logo-panel {
-  flex: 0 0 100%;
-  scroll-snap-align: center;
-  aspect-ratio: 4 / 5;
-  background: var(--color-primary-dark);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-}
-.logo-panel-photo {
-  padding: 2.5rem;
-  background: var(--color-primary-dark);
-}
-.logo-panel-photo img {
-  width: 68%;
-  height: 68%;
+.hero-photo img {
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  object-position: top center;
-  border-radius: calc(var(--radius) - 6px);
-  box-shadow: var(--shadow);
   display: block;
-  margin: 0 auto 1.25rem;
+  margin: 0;
+  border-radius: var(--radius);
 }
-.logo-panel-photo .logo-panel-name { margin: 0; }
+
+/* ===== Gespiegeltes Porträtfoto (Über mich) ===== */
+.mirror-x { transform: scaleX(-1); }
+
+/* ===== Bild-Karussell-Navigation (u.a. Therapiezentrum) ===== */
 .logo-nav-btn {
   position: absolute;
   top: 50%;
@@ -550,43 +533,6 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   cursor: pointer;
 }
 .logo-dot.is-active { background: #fff; }
-.logo-panel-line {
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-size: 1.6rem;
-  line-height: 1.2;
-  margin: 0;
-  color: #fff;
-}
-.logo-panel-bold {
-  font-weight: 700;
-  font-size: 2rem;
-  margin-top: 0.35rem;
-  color: #fff;
-}
-.logo-panel-icon-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.75rem;
-}
-.logo-panel-icon {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
-  display: block;
-  filter: brightness(0) invert(1);
-}
-.logo-panel-name {
-  font-family: Georgia, 'Times New Roman', serif;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 1.3rem;
-  color: #fff;
-  line-height: 1.4;
-  margin: 0;
-}
 
 /* ===== Therapie-Bilderkarussell ===== */
 .therapy-carousel-wrap {
@@ -627,42 +573,6 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
 .therapy-slide-body { padding: 1.5rem; min-height: 130px; }
 .therapy-slide-body h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
 .therapy-slide-body p { margin: 0; font-size: 0.92rem; }
-
-/* ===== Wisch-Galerie ===== */
-.gallery-scroll {
-  display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 0.25rem 0 1.5rem;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-primary) transparent;
-}
-.gallery-scroll::-webkit-scrollbar { height: 8px; }
-.gallery-scroll::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
-.gallery-item {
-  flex: 0 0 78%;
-  max-width: 460px;
-  scroll-snap-align: center;
-  margin: 0;
-}
-@media (min-width: 640px) { .gallery-item { flex: 0 0 46%; } }
-@media (min-width: 980px) { .gallery-item { flex: 0 0 23%; } }
-.gallery-item img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  box-shadow: var(--shadow);
-}
-.gallery-item figcaption {
-  margin-top: 0.6rem;
-  font-family: var(--font-heading);
-  color: var(--color-primary-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-size: 0.95rem;
-}
 
 /* ===== Schließzeiten-Popup ===== */
 .closure-overlay {
