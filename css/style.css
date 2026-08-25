@@ -415,6 +415,9 @@ table.hours td, table.hours th {
 }
 table.hours th { font-family: var(--font-heading); color: var(--color-primary-dark); text-transform: uppercase; font-size: 0.9rem; }
 .team-gears { max-width: 640px; margin: 0 auto; }
+@media (min-width: 1100px) and (hover: hover) and (pointer: fine) {
+  .team-gears { margin: 0; }
+}
 .team-group { padding: 0; }
 .team-group-heading { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.1rem; }
 .team-group-heading .gear-icon {
