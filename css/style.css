@@ -482,6 +482,9 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
 @media (max-width: 780px) {
   .two-col.reverse .col-image { order: 0; }
 }
+@media (min-width: 781px) {
+  .col-image img { max-width: 380px; margin: 0 auto; display: block; }
+}
 
 /* ===== Timeline (Über mich) ===== */
 .timeline { list-style: none; border-left: 3px solid var(--color-accent); padding-left: 1.5rem; margin: 0; }
