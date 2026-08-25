@@ -419,33 +419,49 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   .team-gears { margin: 0; }
 }
 .team-group { padding: 0; }
-.team-group-heading { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.1rem; }
-.team-group-heading .gear-icon {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  color: var(--color-accent);
-}
+.team-group-heading { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.1rem; }
 .team-group h3 {
   margin: 0;
   padding-bottom: 0.3rem;
   border-bottom: 2px solid var(--color-accent);
   display: inline-block;
 }
+
+/* Zahnrad als sauber gezeichnete Form (clip-path), statt generischem UI-Icon */
+.gear-shape {
+  --gear-color: var(--color-accent);
+  display: inline-block;
+  flex-shrink: 0;
+  position: relative;
+  width: 26px;
+  height: 26px;
+  background: var(--gear-color);
+  clip-path: polygon(50.0% 2.0%, 59.9% 19.6%, 78.2% 11.2%, 75.9% 31.2%, 95.6% 35.2%, 82.0% 50.0%, 95.6% 64.8%, 75.9% 68.8%, 78.2% 88.8%, 59.9% 80.4%, 50.0% 98.0%, 40.1% 80.4%, 21.8% 88.8%, 24.1% 68.8%, 4.4% 64.8%, 18.0% 50.0%, 4.4% 35.2%, 24.1% 31.2%, 21.8% 11.2%, 40.1% 19.6%);
+}
+.gear-shape::after {
+  content: "";
+  position: absolute;
+  top: 32%;
+  left: 32%;
+  width: 36%;
+  height: 36%;
+  background: var(--color-bg);
+  border-radius: 50%;
+}
 .team-gear-connector {
   display: flex;
   justify-content: center;
   margin: 1.5rem 0;
-  color: var(--color-primary);
-  opacity: 0.55;
 }
-.team-gear-connector svg {
-  width: 24px;
-  height: 24px;
+.team-gear-connector .gear-shape {
+  --gear-color: var(--color-primary);
+  width: 22px;
+  height: 22px;
+  opacity: 0.55;
   animation: team-gear-spin 8s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
-  .team-gear-connector svg { animation: none; }
+  .team-gear-connector .gear-shape { animation: none; }
 }
 @keyframes team-gear-spin {
   from { transform: rotate(0deg); }
