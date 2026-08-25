@@ -414,14 +414,39 @@ table.hours td, table.hours th {
   text-align: left;
 }
 table.hours th { font-family: var(--font-heading); color: var(--color-primary-dark); text-transform: uppercase; font-size: 0.9rem; }
-.team-group { padding-top: 1.85rem; border-top: 1px solid var(--color-border); }
-.team-group:first-of-type { padding-top: 0; border-top: none; }
-.team-group + .team-group { margin-top: 0; }
+.team-gears { max-width: 640px; margin: 0 auto; }
+.team-group { padding: 0; }
+.team-group-heading { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.1rem; }
+.team-group-heading .gear-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
 .team-group h3 {
-  margin: 0 0 1.1rem;
-  padding-bottom: 0.4rem;
+  margin: 0;
+  padding-bottom: 0.3rem;
   border-bottom: 2px solid var(--color-accent);
   display: inline-block;
+}
+.team-gear-connector {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  color: var(--color-primary);
+  opacity: 0.55;
+}
+.team-gear-connector svg {
+  width: 24px;
+  height: 24px;
+  animation: team-gear-spin 8s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .team-gear-connector svg { animation: none; }
+}
+@keyframes team-gear-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* ===== Two column layout ===== */
