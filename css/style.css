@@ -154,7 +154,17 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
     padding-bottom: 1.15rem;
   }
   .main-nav ul { gap: 3.25rem; }
-  .main-nav a { font-size: 1.15rem; }
+  .main-nav a {
+    font-size: 1.15rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 6px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .main-nav a:hover {
+    background: var(--color-primary);
+    color: #fff;
+    border-bottom-color: transparent;
+  }
   .page-hero .subtitle-oneline { max-width: none; white-space: nowrap; font-size: 0.9rem; }
 }
 
