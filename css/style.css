@@ -479,7 +479,8 @@ table.hours td, table.hours th {
 table.hours th { font-family: var(--font-heading); color: var(--color-primary-dark); text-transform: uppercase; font-size: 0.9rem; }
 .team-gears { max-width: 640px; margin: 0; }
 .team-group { padding: 0; }
-.team-group-heading { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.1rem; }
+.team-group + .team-group { margin-top: 2.25rem; }
+.team-group-heading { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.25rem; }
 .team-icon {
   width: 52px;
   height: 52px;
@@ -543,7 +544,7 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   width: 32px;
   height: 32px;
   opacity: 0.9;
-  animation: team-gear-spin 6s linear infinite;
+  animation: team-gear-spin 8s linear infinite;
 }
 .gear-pair .gear-shape--small {
   --gear-color: var(--color-accent);
@@ -553,7 +554,7 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   width: 21px;
   height: 21px;
   opacity: 0.9;
-  animation: team-gear-spin-reverse 4.5s linear infinite;
+  animation: team-gear-spin-reverse 8s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .gear-pair .gear-shape--big, .gear-pair .gear-shape--small { animation: none; }
