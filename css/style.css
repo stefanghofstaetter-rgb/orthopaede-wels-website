@@ -253,9 +253,9 @@ img { max-width: 100%; display: block; border-radius: var(--radius); }
 }
 .btn-outline:hover { background: rgba(255,255,255,0.15); color: #fff; }
 .btn-outline-accent {
-  background: transparent;
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
   font-size: 0.85rem;
   padding: 0.55rem 1.1rem;
   cursor: default;
