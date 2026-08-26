@@ -529,24 +529,19 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   background: var(--color-bg);
   border-radius: 50%;
 }
-.team-gear-connector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0.5rem 0;
-}
 .gear-pair {
   position: relative;
-  width: 58px;
-  height: 44px;
+  flex-shrink: 0;
+  width: 46px;
+  height: 36px;
 }
 .gear-pair .gear-shape--big {
   --gear-color: var(--color-primary);
   position: absolute;
   left: 0;
   top: 2px;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   opacity: 0.9;
   animation: team-gear-spin 6s linear infinite;
 }
@@ -555,8 +550,8 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   position: absolute;
   right: 0;
   top: 0;
-  width: 26px;
-  height: 26px;
+  width: 21px;
+  height: 21px;
   opacity: 0.9;
   animation: team-gear-spin-reverse 4.5s linear infinite;
 }
