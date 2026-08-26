@@ -479,7 +479,20 @@ table.hours td, table.hours th {
 table.hours th { font-family: var(--font-heading); color: var(--color-primary-dark); text-transform: uppercase; font-size: 0.9rem; }
 .team-gears { max-width: 640px; margin: 0; }
 .team-group { padding: 0; }
-.team-group-heading { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.1rem; }
+.team-group-heading { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.1rem; }
+.team-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow);
+}
+.team-icon .gear-shape { --gear-color: #fff; width: 24px; height: 24px; }
+.team-icon .gear-shape::after { background: var(--color-primary); }
 .team-group h3 {
   margin: 0;
   padding-bottom: 0.3rem;
@@ -510,14 +523,18 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
 }
 .team-gear-connector {
   display: flex;
-  justify-content: center;
-  margin: 1.5rem 0;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.25rem 26px;
+  padding-left: 1rem;
+  border-left: 2px dashed var(--color-border);
+  min-height: 32px;
 }
 .team-gear-connector .gear-shape {
   --gear-color: var(--color-primary);
-  width: 22px;
-  height: 22px;
-  opacity: 0.55;
+  width: 24px;
+  height: 24px;
+  opacity: 0.85;
   animation: team-gear-spin 8s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
