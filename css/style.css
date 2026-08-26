@@ -496,7 +496,6 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   --gear-color: #fff;
   width: 24px;
   height: 24px;
-  animation: team-gear-spin 8s linear infinite;
 }
 .team-icon .gear-shape::after { background: var(--color-primary); }
 @media (prefers-reduced-motion: reduce) {
@@ -544,7 +543,6 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   width: 32px;
   height: 32px;
   opacity: 0.9;
-  animation: team-gear-spin 8s linear infinite;
 }
 .gear-pair .gear-shape--small {
   --gear-color: var(--color-accent);
@@ -554,18 +552,6 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   width: 21px;
   height: 21px;
   opacity: 0.9;
-  animation: team-gear-spin-reverse 8s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .gear-pair .gear-shape--big, .gear-pair .gear-shape--small { animation: none; }
-}
-@keyframes team-gear-spin-reverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-@keyframes team-gear-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 /* ===== Two column layout ===== */
