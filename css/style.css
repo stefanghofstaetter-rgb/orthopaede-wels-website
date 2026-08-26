@@ -491,8 +491,16 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
   flex-shrink: 0;
   box-shadow: var(--shadow);
 }
-.team-icon .gear-shape { --gear-color: #fff; width: 24px; height: 24px; }
+.team-icon .gear-shape {
+  --gear-color: #fff;
+  width: 24px;
+  height: 24px;
+  animation: team-gear-spin 8s linear infinite;
+}
 .team-icon .gear-shape::after { background: var(--color-primary); }
+@media (prefers-reduced-motion: reduce) {
+  .team-icon .gear-shape { animation: none; }
+}
 .team-group h3 {
   margin: 0;
   padding-bottom: 0.3rem;
