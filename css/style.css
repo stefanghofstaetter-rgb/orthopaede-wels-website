@@ -532,21 +532,40 @@ table.hours th { font-family: var(--font-heading); color: var(--color-primary-da
 .team-gear-connector {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin: 1.25rem 0 1.25rem 26px;
-  padding-left: 1rem;
-  border-left: 2px dashed var(--color-border);
-  min-height: 32px;
+  justify-content: center;
+  margin: 0.5rem 0;
 }
-.team-gear-connector .gear-shape {
+.gear-pair {
+  position: relative;
+  width: 58px;
+  height: 44px;
+}
+.gear-pair .gear-shape--big {
   --gear-color: var(--color-primary);
-  width: 24px;
-  height: 24px;
-  opacity: 0.85;
-  animation: team-gear-spin 8s linear infinite;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 40px;
+  height: 40px;
+  opacity: 0.9;
+  animation: team-gear-spin 6s linear infinite;
+}
+.gear-pair .gear-shape--small {
+  --gear-color: var(--color-accent);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  opacity: 0.9;
+  animation: team-gear-spin-reverse 4.5s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
-  .team-gear-connector .gear-shape { animation: none; }
+  .gear-pair .gear-shape--big, .gear-pair .gear-shape--small { animation: none; }
+}
+@keyframes team-gear-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
 @keyframes team-gear-spin {
   from { transform: rotate(0deg); }
