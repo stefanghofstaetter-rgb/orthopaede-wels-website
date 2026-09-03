@@ -105,7 +105,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     .map((c) => {
       const reasonLabel = c.reason || "Die Ordination ist geschlossen";
       const datesLabel = formatRangeDE(c.startDE, c.endDE);
-      return `<li class="closure-item"><span class="closure-item-reason">${reasonLabel}</span><span class="closure-item-dates">${datesLabel}</span></li>`;
+      return `<li class="closure-item">
+        <span class="closure-item-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </span>
+        <p>${reasonLabel} <strong>${datesLabel}</strong></p>
+      </li>`;
     })
     .join("");
 
