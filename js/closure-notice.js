@@ -136,10 +136,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   overlay.className = "closure-overlay";
   overlay.setAttribute("role", "dialog");
   overlay.setAttribute("aria-modal", "true");
-  overlay.setAttribute("aria-labelledby", "closure-title");
+  overlay.setAttribute("aria-label", "Ordination vorübergehend geschlossen");
   overlay.innerHTML = `
     <div class="closure-box">
-      <h2 id="closure-title">Ordination vorübergehend geschlossen</h2>
       <ul class="closure-list">${items}</ul>
       <div class="closure-reopen">
         <span class="closure-reopen-icon" aria-hidden="true">
