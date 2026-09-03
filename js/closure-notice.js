@@ -42,12 +42,20 @@ function formatDateDE(date) {
   return `${d}.${m}.${date.getFullYear()}`;
 }
 
-function nextBusinessDayDE(date) {
+function nextBusinessDay(date) {
   const next = new Date(date);
   do {
     next.setDate(next.getDate() + 1);
   } while (next.getDay() === 0 || next.getDay() === 6); // Sonntag / Samstag überspringen
-  return formatDateDE(next);
+  return next;
+}
+
+const MONTHS_DE = [
+  "Januar", "Februar", "März", "April", "Mai", "Juni",
+  "Juli", "August", "September", "Oktober", "November", "Dezember",
+];
+function formatDateDELong(date) {
+  return `${date.getDate()}. ${MONTHS_DE[date.getMonth()]} ${date.getFullYear()}`;
 }
 
 function formatRangeDE(startDE, endDE) {
@@ -99,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     },
     parseDateDE(active[0].endDE)
   );
-  const reachableAgain = nextBusinessDayDE(latestEnd);
+  const reachableAgain = formatDateDELong(nextBusinessDay(latestEnd));
 
   const items = active
     .map((c) => {
@@ -127,7 +135,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <span class="closure-reopen-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
         </span>
-        <p><strong>Ab ${reachableAgain}</strong> sind wir wieder für Sie in gewohnter Weise <strong>erreichbar</strong>.</p>
+        <p><strong>Ab dem ${reachableAgain}</strong> sind wir gerne wieder wie gewohnt für Sie <strong>da</strong>.</p>
       </div>
       <div class="closure-urgent">
         <span class="closure-urgent-icon" aria-hidden="true">
