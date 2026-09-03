@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <span class="closure-reopen-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
         </span>
-        <p>Ab <strong>${reachableAgain}</strong> sind wir wieder für Sie in gewohnter Weise erreichbar.</p>
+        <p><strong>Ab ${reachableAgain}</strong> sind wir wieder für Sie in gewohnter Weise <strong>erreichbar</strong>.</p>
       </div>
       <div class="closure-urgent">
         <span class="closure-urgent-icon" aria-hidden="true">
