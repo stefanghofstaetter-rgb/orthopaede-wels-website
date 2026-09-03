@@ -36,6 +36,20 @@ function parseDateDE(str) {
   return new Date(`${y}-${m}-${d}T00:00:00`);
 }
 
+function formatDateDE(date) {
+  const d = String(date.getDate()).padStart(2, "0");
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  return `${d}.${m}.${date.getFullYear()}`;
+}
+
+function nextBusinessDayDE(date) {
+  const next = new Date(date);
+  do {
+    next.setDate(next.getDate() + 1);
+  } while (next.getDay() === 0 || next.getDay() === 6); // Sonntag / Samstag überspringen
+  return formatDateDE(next);
+}
+
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
   return lines
@@ -72,6 +86,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   const sessionKey = "closureNoticeSeen:" + active.map((c) => `${c.reason}|${c.startDE}|${c.endDE}`).join(";");
   if (sessionStorage.getItem(sessionKey)) return;
 
+  const latestEnd = active.reduce(
+    (max, c) => {
+      const end = parseDateDE(c.endDE);
+      return end > max ? end : max;
+    },
+    parseDateDE(active[0].endDE)
+  );
+  const reachableAgain = nextBusinessDayDE(latestEnd);
+
   const items = active
     .map((c) => {
       if (!c.reason) {
@@ -91,8 +114,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="closure-box">
       <h2 id="closure-title">Ordination vorübergehend geschlossen</h2>
       <ul>${items}</ul>
-      <p>Ab dem nächsten Werktag sind wir wieder für Sie in gewohnter Weise erreichbar.</p>
-      <p>Bei dringenden Anliegen wenden Sie sich bitte an den auf unserem Anrufbeantworter genannten Vertretungsarzt, an die Gesundheitsberatung unter <a href="tel:1450">1450</a> oder an Ihren Hausarzt.</p>
+      <p>Ab ${reachableAgain} sind wir wieder für Sie in gewohnter Weise erreichbar.</p>
+      <p><strong>Bei dringenden Anliegen wenden Sie sich bitte an den auf unserem Anrufbeantworter genannten Vertretungsarzt, an die Gesundheitsberatung unter <a href="tel:1450">1450</a> oder an Ihren Hausarzt.</strong></p>
       <button type="button" class="btn btn-primary closure-close">Verstanden</button>
     </div>
   `;
