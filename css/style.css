@@ -883,6 +883,35 @@ body.closure-open { overflow: hidden; }
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;
 }
+.closure-urgent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: rgba(45, 134, 165, 0.08);
+  border: 1px solid rgba(45, 134, 165, 0.25);
+  border-radius: 8px;
+  padding: 0.8rem 0.95rem;
+  margin: 0 0 1.5rem;
+}
+.closure-urgent-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+.closure-urgent-icon svg { width: 15px; height: 15px; }
+.closure-urgent p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
 .closure-box p { font-size: 0.95rem; margin-bottom: 1.5rem; }
 .closure-box .btn { width: 100%; text-align: center; color: #fff; }
 
