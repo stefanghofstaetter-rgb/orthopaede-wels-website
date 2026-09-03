@@ -13,6 +13,10 @@
 //    die Tabelle auf "Jeder mit dem Link: Betrachter" freigegeben
 //    sein (Freigeben-Button oben rechts in der Tabelle).
 //
+//    Feld "Grund" leer lassen (kein Urlaub/keine Fortbildung
+//    eingetragen): Es erscheint dann automatisch der neutrale Text
+//    "Die Ordination ist geschlossen. Von ... bis ...".
+//
 // In beiden Fällen: Vergangene Zeilen können stehen bleiben – sie
 // werden automatisch ausgeblendet, sobald das Enddatum vorbei ist,
 // und das Pop-up erscheint jeweils nur während des Zeitraums selbst.
@@ -37,7 +41,7 @@ function parseCSV(text) {
   return lines
     .slice(1) // Kopfzeile überspringen
     .map((line) => line.split(","))
-    .filter((cols) => cols.length >= 3 && cols[0].trim())
+    .filter((cols) => cols.length >= 3 && cols[1].trim() && cols[2].trim())
     .map(([reason, startDE, endDE]) => ({
       reason: reason.trim(),
       startDE: startDE.trim(),
@@ -70,6 +74,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const items = active
     .map((c) => {
+      if (!c.reason) {
+        return `<li>Die Ordination ist geschlossen. Von ${c.startDE} bis ${c.endDE}</li>`;
+      }
       const when = c.startDE === c.endDE ? `am ${c.startDE}` : `von ${c.startDE} bis ${c.endDE}`;
       return `<li>${c.reason} ${when}</li>`;
     })
