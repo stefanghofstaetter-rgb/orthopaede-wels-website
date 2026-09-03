@@ -118,7 +118,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="closure-box">
       <h2 id="closure-title">Ordination vorübergehend geschlossen</h2>
       <ul class="closure-list">${items}</ul>
-      <p>Ab ${reachableAgain} sind wir wieder für Sie in gewohnter Weise erreichbar.</p>
+      <div class="closure-reopen">
+        <span class="closure-reopen-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"></polyline></svg>
+        </span>
+        <p>Ab <strong>${reachableAgain}</strong> sind wir wieder für Sie in gewohnter Weise erreichbar.</p>
+      </div>
       <p><strong>Bei dringenden Anliegen wenden Sie sich bitte an den auf unserem Anrufbeantworter genannten Vertretungsarzt, an die Gesundheitsberatung unter <a href="tel:1450">1450</a> oder an Ihren Hausarzt.</strong></p>
       <button type="button" class="btn btn-primary closure-close">Verstanden</button>
     </div>
