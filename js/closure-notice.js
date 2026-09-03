@@ -50,6 +50,12 @@ function nextBusinessDayDE(date) {
   return formatDateDE(next);
 }
 
+function formatRangeDE(startDE, endDE) {
+  if (startDE === endDE) return startDE;
+  const [dayStart, monthStart] = startDE.split(".");
+  return `${dayStart}.${monthStart}. – ${endDE}`;
+}
+
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
   return lines
@@ -97,11 +103,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const items = active
     .map((c) => {
-      if (!c.reason) {
-        return `<li>Die Ordination ist geschlossen. Von ${c.startDE} bis ${c.endDE}</li>`;
-      }
-      const when = c.startDE === c.endDE ? `am ${c.startDE}` : `von ${c.startDE} bis ${c.endDE}`;
-      return `<li>${c.reason} ${when}</li>`;
+      const reasonLabel = c.reason || "Die Ordination ist geschlossen";
+      const datesLabel = formatRangeDE(c.startDE, c.endDE);
+      return `<li class="closure-item"><span class="closure-item-reason">${reasonLabel}</span><span class="closure-item-dates">${datesLabel}</span></li>`;
     })
     .join("");
 
@@ -113,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   overlay.innerHTML = `
     <div class="closure-box">
       <h2 id="closure-title">Ordination vorübergehend geschlossen</h2>
-      <ul>${items}</ul>
+      <ul class="closure-list">${items}</ul>
       <p>Ab ${reachableAgain} sind wir wieder für Sie in gewohnter Weise erreichbar.</p>
       <p><strong>Bei dringenden Anliegen wenden Sie sich bitte an den auf unserem Anrufbeantworter genannten Vertretungsarzt, an die Gesundheitsberatung unter <a href="tel:1450">1450</a> oder an Ihren Hausarzt.</strong></p>
       <button type="button" class="btn btn-primary closure-close">Verstanden</button>
